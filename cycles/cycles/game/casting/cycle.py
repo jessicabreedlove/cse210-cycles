@@ -14,7 +14,7 @@ class Cycle(Actor):
     """
     def __init__(self, color):
         super().__init__()
-        self.cycle_color = color
+        self._cycle_color = color
         self._segments = []
         self._prepare_body()
 
