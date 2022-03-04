@@ -38,7 +38,7 @@ class DrawActorsAction(Action):
         self._video_service.clear_buffer()
         # self._video_service.draw_actor(food)
         self._video_service.draw_actors(cycle1_segments)
-        self._video_service.draw_actors(cycle1_segments)
+        self._video_service.draw_actors(cycle2_segments)
         self._video_service.draw_actor(score)
         self._video_service.draw_actors(messages, True)
         self._video_service.flush_buffer()
