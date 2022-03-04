@@ -46,7 +46,6 @@ class Cycle(Actor):
             segment.set_position(position)
             segment.set_velocity(velocity)
             segment.set_text("#")
-            # segment.set_color(constants.GREEN)
             segment.set_color(self.cycle_color)
             self._segments.append(segment)
 
@@ -58,11 +57,11 @@ class Cycle(Actor):
         y = 0.0
 
         if (self._cycle_color == constants.RED):
-            x = int(constants.MAX_X / 4)
-            y = int(constants.MAX_Y / 4)
+            x = int(constants.MAX_X / 40)
+            y = int(constants.MAX_Y / 40)
         else:
-            x = int(constants.MAX_X / 8)
-            y = int(constants.MAX_Y / 8)
+            x = int(constants.MAX_X / 2)
+            y = int(constants.MAX_Y / 2)
 
 
         for i in range(constants.SNAKE_LENGTH):
