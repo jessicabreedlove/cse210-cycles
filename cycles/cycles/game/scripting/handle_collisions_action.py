@@ -108,11 +108,11 @@ class HandleCollisionsAction(Action):
 
              for segment in segments:
                  segment.set_color(constants.WHITE)
-
+             for segment in segments2:
+                 segment.set_color(constants.WHITE)
     
     def get_is_game_over(self):
         return self._is_game_over
-        for segment in segments2:
-            segment.set_color(constants.WHITE)
+
         
 
