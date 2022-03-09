@@ -22,8 +22,9 @@ class ControlActorsAction(Action):
         self._keyboard_service = keyboard_service
         self._direction1 = Point(0, constants.CELL_SIZE)
         self._direction2 = Point(0, -1 * constants.CELL_SIZE)
+        self._is_game_over = False
 
-    def execute(self, cast, script):
+    def execute(self, cast, is_game_over, script):
         """Executes the control actors action.
 
         Args:
@@ -53,9 +54,7 @@ class ControlActorsAction(Action):
         
         cycle1 = cycles[0]
         cycle1.turn_head(self._direction1)
-        
-        
-        
+              
         cycles = cast.get_actors("cycles")
 
         # left
@@ -77,4 +76,5 @@ class ControlActorsAction(Action):
         cycle2 = cycles[1]
         cycle2.turn_head(self._direction2)
 
-        
+    def set_is_game_over(self, is_game_over):
+        self._is_game_over = is_game_over
