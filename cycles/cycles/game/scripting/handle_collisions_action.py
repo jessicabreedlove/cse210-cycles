@@ -30,7 +30,7 @@ class HandleCollisionsAction(Action):
             self._handle_segment_collision(cast)
             self._handle_game_over(cast)
 
-    def _handle_food_collision(self, cast, Cycles):
+    def _handle_food_collision(self, cast):
         """Updates the score nd moves the food if the snake collides with the food.
         
         Args:
@@ -38,8 +38,8 @@ class HandleCollisionsAction(Action):
         """
         score = cast.get_first_actor("scores")
         food = cast.get_first_actor("foods")
-        snake = cast.get_first_actor("snakes")
-        head = Cycles.get_head()
+        cycles = cast.get_first_actor("cycles")
+        head = cycles.get_head()
 
         if head.get_position().equals(food.get_position()):
              points = food.get_points()
