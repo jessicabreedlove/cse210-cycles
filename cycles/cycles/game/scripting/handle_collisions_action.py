@@ -59,6 +59,7 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
+
         cycles = cast.get_actors("cycles")
         cycle1 = cycles[0]
         head = cycle1.get_segments()[0]
@@ -89,8 +90,12 @@ class HandleCollisionsAction(Action):
             cast (Cast): The cast of Actors in the game.
         """
         if self._is_game_over:
-             cycle = cast.get_first_actor("cycles")
-             segments = cycle.get_segments()
+             cycles = cast.get_actors("cycles")
+             cycle1 = cycles[0]
+             segments = cycle1.get_segments()
+
+             cycle2 = cycles[1]
+             segments2 = cycle2.get_segments()
 
              x = int(constants.MAX_X / 2)
              y = int(constants.MAX_Y / 2)
@@ -102,5 +107,7 @@ class HandleCollisionsAction(Action):
              cast.add_actor("messages", message)
 
              for segment in segments:
+                 segment.set_color(constants.WHITE)
+             for segment in segments2:
                  segment.set_color(constants.WHITE)
         
