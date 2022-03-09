@@ -18,7 +18,7 @@ class HandleCollisionsAction(Action):
         """Constructs a new HandleCollisionsAction."""
         self._is_game_over = False
 
-    def execute(self, cast, script):
+    def execute(self, cast, is_game_over, script):
         """Executes the handle collisions action.
 
         Args:
@@ -108,6 +108,12 @@ class HandleCollisionsAction(Action):
 
              for segment in segments:
                  segment.set_color(constants.WHITE)
+ main
+    
+    def get_is_game_over(self):
+        return self._is_game_over
+
              for segment in segments2:
                  segment.set_color(constants.WHITE)
         
+ main
