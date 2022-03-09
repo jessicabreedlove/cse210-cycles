@@ -38,13 +38,20 @@ class HandleCollisionsAction(Action):
         """
         score = cast.get_first_actor("scores")
         food = cast.get_first_actor("foods")
-        cycles = cast.get_first_actor("cycles")
-        head = cycles.get_head()
+        cycles = cast.get_actors("cycles")
+        cycle1 = cycles[0]
+        cycle2 = cycles[1]
+        head = cycle1.get_segments()[0]
+        head2 = cycle2.get_segments()[0]
 
         if head.get_position().equals(food.get_position()):
-             points = food.get_points()
-             score.add_points(points)
-             food.reset()
+            points = food.get_points()
+            score.add_points(points)
+            food.reset()
+        elif head2.get_position().equals(food.get_position()):
+            points = food.get_points()
+            score.add_points(points)
+            food.reset()
         
     def _handle_segment_collision(self, cast):
         """Sets the game over flag if the snake collides with one of its segments.
@@ -52,6 +59,7 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
+
         cycles = cast.get_actors("cycles")
         cycle1 = cycles[0]
         head = cycle1.get_segments()[0]
@@ -82,8 +90,12 @@ class HandleCollisionsAction(Action):
             cast (Cast): The cast of Actors in the game.
         """
         if self._is_game_over:
-             cycle = cast.get_first_actor("cycles")
-             segments = cycle.get_segments()
+             cycles = cast.get_actors("cycles")
+             cycle1 = cycles[0]
+             segments = cycle1.get_segments()
+
+             cycle2 = cycles[1]
+             segments2 = cycle2.get_segments()
 
              x = int(constants.MAX_X / 2)
              y = int(constants.MAX_Y / 2)
@@ -96,6 +108,12 @@ class HandleCollisionsAction(Action):
 
              for segment in segments:
                  segment.set_color(constants.WHITE)
+ main
     
     def get_is_game_over(self):
         return self._is_game_over
+
+             for segment in segments2:
+                 segment.set_color(constants.WHITE)
+        
+ main
