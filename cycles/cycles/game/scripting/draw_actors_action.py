@@ -31,8 +31,8 @@ class DrawActorsAction(Action):
         cycles = cast.get_actors("cycles")
         cycle1 = cycles[0]
         cycle2 = cycles[1]
-        cycle1.grow_tail(1)
-        cycle2.grow_tail(1)
+        cycle1.grow_trail(1)
+        cycle2.grow_trail(1)
         cycle1_segments = cycle1.get_segments()
         cycle2_segments = cycle2.get_segments()
         messages = cast.get_actors("messages")
